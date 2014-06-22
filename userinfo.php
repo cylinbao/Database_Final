@@ -60,13 +60,18 @@ else{
 			      \"float: left;\" onclick=\"self.location.href=
 						'householdinfo.php?hid=".$hid."'\">";
 			echo "<br/>";
-			echo "<input type=\"button\" value=\"Main Page\" style=
-			      \"float: left;\" onclick=\"self.location.href='main.php'\">";
-			echo "<br/>";
+			//echo "<input type=\"button\" value=\"Main Page\" style=
+			//     \"float: left;\" onclick=\"self.location.href='main.php'\">";
+			//echo "<br/>";
 		}
 	}
 }
 ?>
+</div>
+<div id=button>                                                                 
+<input type="button" value="Main" style="float:center;width:60px;               
+ height:25px;font-size:15px;background-color:B3B3BC;border:1px #E0E0EB          
+ double" onclick="self.location.href='main.php'"/>                              
 </div>
 </body>
 </html>

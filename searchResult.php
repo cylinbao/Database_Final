@@ -56,11 +56,6 @@ else{
 					$row2 = mysqli_fetch_array($result2);
 					echo "Email: ".$row2['email']."<br/>";
 				}
-
-				echo "<p>";
-				echo "<input type=\"button\" value=\"Household Info\" style=
-					\"float: left;\" onclick=\"self.location.href=
-					'householdinfo.php?hid=".$hid."'\">";
 			}
 		}
 		else if($hid != "") {
@@ -148,7 +143,10 @@ else{
 					echo "Uid: ".$uid."<br/>";
 					echo "Hid: ".$hid."<br/>";
 					echo "Sex: ".$sex."<br/>";
-					echo "Birthday: ".$birthday."<br/>";
+					echo "Birthday: ".$birthday;
+
+					if($i != $num-1)
+						echo "<p>";
 				}
 			}
 			else
@@ -192,14 +190,20 @@ else{
 			}
 		}
 
-		echo "<p>";
-		echo "<br/>";
-		echo "<input type=\"button\" value=\"Main Page\" style=
-			\"float: left;\" onclick=\"self.location.href='main.php'\">";
-		echo "<br/>";
+		//echo "<p>";
+		//echo "<br/>";
+		//echo "<input type=\"button\" value=\"Main Page\" style=
+			//\"float: left;\" onclick=\"self.location.href='main.php'\">";
+		//echo "<br/>";
 	}
 }
 ?>
+</div>
+<div id=button>                                                                 
+  <input type="button" value="Main" style="float:center;width:60px;             
+   height:25px;font-size:15px;background-color:B3B3BC;border:1px #E0E0EB        
+   double"                                                                      
+  onclick="self.location.href='main.php'">                                      
 </div>
 </body>
 </html>
