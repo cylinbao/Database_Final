@@ -1,0 +1,47 @@
+body {
+	background: #CCFFFF;
+	background: #A5DBFF;
+	background: #B2FFFF;
+	background: #D1FFFF;
+	font-weght: lighter;
+}
+h3 {
+	text-align: center;
+	margin-top: 2%;
+	background: #0099FF;
+	padding: 1ex 0;
+	color: snow;
+	font-size: 24px;
+	border-top: solid 2px snow;
+	border-bottom: solid 2px snow;
+}
+#loginform {
+	text-align: center;
+	margin: 0 30%;
+	padding: 1% 10%;
+	background: #D1FFFF;
+	line-height: 4ex;
+	color: black;
+	fond-size: 16px;
+}
+#logininput {
+	float: right;
+}
+#logintext {
+	float: left;
+}
+#regisInput {
+	float: center;
+}
+#mainform {
+	margin:0 15%;
+	border: dotted 2px #e3f9ff;
+	padding: 3ex 5%;                                                        
+	background: #70DBFF;
+	line-height: 3ex;                                                     
+	color: black;
+}
+#button {
+	margin-top: 1%;
+	text-align: center;
+}
