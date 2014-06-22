@@ -103,51 +103,21 @@ else{
 			</form></p>
 <?php
 		}else{
-			echo "<span style=\"font-size:25px;\">
-			Latest 5 Modified Profiles</span>";
+			//echo "<span style=\"font-size:25px;\">
+			//Latest 5 Modified Profiles</span>";
 
-			$sql5 = "SELECT * FROM personal_info ORDER BY modtime DESC LIMIT 5";
-			$result5 = mysqli_query($con,$sql5);
-			$num5 = mysqli_num_rows($result5);
-			for($i=0;$i<$num5;$i++){
-				$row5 = mysqli_fetch_array($result5);
-				echo "<br/><span style=\"word-spacing:1em;\">
-					 User_ID:".$row5['uid']." Name:".$row5['name'].
-					 " Modified_Time:</span>".$row5['modtime']."
-					 <a href=userinfo.php?uid=".$row5['uid'].">
-					 User_Info</a>";
-			}
+			//$sql5 = "SELECT * FROM personal_info ORDER BY modtime DESC LIMIT 5";
+			//$result5 = mysqli_query($con,$sql5);
+			//$num5 = mysqli_num_rows($result5);
+			//for($i=0;$i<$num5;$i++){
+				//$row5 = mysqli_fetch_array($result5);
+				//echo "<br/><span style=\"word-spacing:1em;\">
+					 //User_ID:".$row5['uid']." Name:".$row5['name'].
+					 //" Modified_Time:</span>".$row5['modtime']."
+					 //<a href=userinfo.php?uid=".$row5['uid'].">
+					 //User_Info</a>";
+			//}
 ?>
-			<p><span style="font-size:25px;">Update User Information</span></br>
-			<form method="get" action="updateInfo.php">
-			Select UID:
-			<select name=updateUid size=1>
-			<?php 
-				$sql = "SELECT * FROM users";                                       
-    		$result = mysqli_query($con,$sql);                                      
-    		while($row = mysqli_fetch_array($result)){                              
-      	echo "<option value=\"".$row['uid']."\">".$row['uid']."</option>";    
-    		}                                                                       
-    	?>
-			</select>
-			<input type="submit" value="Update">
-			</form>
-
-			<p><span style="font-size:25px;">Update Household Infomation</span></br>
-			<form method="get" action="updateHouse.php">
-			Select HID:
-			<select name=updateHid size=1>
-			<?php                                                             
-    		$sql = "SELECT * FROM household";                                       
-    		$result = mysqli_query($con,$sql);                                      
-    		while($row = mysqli_fetch_array($result)){                              
-      	echo "<option value=\"".$row['hid']."\">".$row['hid']."</option>";    
-    		}                                                                       
-    	?>
-			</select>
-			<input type="submit" value="Update">
-			</form>
-
 			<p><span style="font-size:25px;">Household Members Changes List
 			</span></br>
 			<form method="get" action="householdMemChange.php">
@@ -164,38 +134,63 @@ else{
 			<input type="submit" value="Search">
 			</form>
 
-			<p><span style="font-size:25px;">Modificatoin Histories</span>
-			<form method="post" action="modhistory.php">
-			Select UID:
-			<select name=modUid size=1>
-			<?php                                                               
-    		$sql = "SELECT * FROM users";                                       
-    		$result = mysqli_query($con,$sql);                                      
-    		while($row = mysqli_fetch_array($result)){                              
-      	echo "<option value=\"".$row['uid']."\">".$row['uid']."</option>";    
-    		}                                                                       
-    	?>
-			</select><br/>
-			Enter Time Interval:(yyyy-mm-dd hh-mm-ss)<br/>
-			<input type="text" name="statime">~<input type="text" name="endtime">
-			<input type="submit" value="Search">
-			</form></p>
-  		<p>
-			<input type="button" value="New Household" style="float: left;" 
-	 		onclick="self.location.href='addHousehold.php'">
-			
 			<br/>
-			<input type="button" value="Search Page" style="float: left;" 
+			<input type="button" value="Search Page" style="float: left; width:125px;
+				height:25; font-size:15px;" 
 	 		onclick="self.location.href='search.php'">
+			<br/>
+			<p>
+			<input type="button" value="Update Page" style="float: left; width:125px;
+				height:25; font-size:15px;" 
+	 		onclick="self.location.href='update.php'">
+			<br/>
+			<p>
+			<input type="button" value="Modification" style="float: left;
+				width:125px; height:25; font-size:15px;" 
+	 		onclick="self.location.href='modifyPage.php'">
+			<br/>
+			<p>
+			<input type="button" value="Statistics" style="float: left; width:125px;
+				height:25; font-size:15px;" 
+	 		onclick="self.location.href='statistics.php'">
 			<br/>
 <?php
 		}
 ?>
-	<input type="button" value="User Info" style="float: left;" 
+	<p>
+	<input type="button" value="User Info" style="float: left; width:125px;
+				height:25; font-size:15px;" 
 	 onclick="self.location.href='userinfo.php'">
 	<br/>
-	<input type="button" value="Household Info" style="float: left;"
+	<p>
+	<input type="button" value="Household Info" style="float: left; width:125px;
+				height:25; font-size:15px;"
 	 onclick="self.location.href='householdinfo.php'">
+	<br/>
+<?php
+	$hid = $_SESSION['hid'];
+	$city = $_SESSION['city'];
+
+	$sql = "SELECT * FROM household WHERE city = '".$city."' AND hid <> '".
+					$hid."'";                       
+	$result = mysqli_query($con, $sql);                                         
+	$num = mysqli_num_rows($result);
+	
+	if($num > 0) {
+		$row = mysqli_fetch_array($result);
+		$hid2 = $row['hid'];
+
+		$sql2 = "SELECT * FROM personal_info WHERE hid ='".$hid2."'";
+		$result2 = mysqli_query($con, $sql2);
+		$row2 = mysqli_fetch_array($result2);
+?>
+		<p><span style="font-size:25px;">Feel lonely?</span><br/>
+<?php
+
+		echo "A person you may want to know: ";
+		echo "<a href=stranger.php?uid=".$row2['uid'].">".$row2['name']."</a>";
+	}
+?>
 </div>
 <div id=button>
 	<input type="button" value="Logout" style="float:center;width:60px;

@@ -4,10 +4,10 @@
 </style>
 <html>
 <head>
-	<title>Database FP | Search</title>
+	<title>Database FP | Household_Info</title>
 </head>
 <body>
-<h3>Household Registration System</br>Search Result</h3> 
+<h3>Household Registration System</br>Household Information</h3> 
 <div id="mainform">
 <?php
 session_start();
@@ -17,7 +17,10 @@ if(!isset($_SESSION['sus'])){
 	echo "<a href=index.php>Login Page</a>";
 }
 else{
-	require 'PASS.php';
+	$host = "localhost";
+	$dbname = "dbuser";
+	$dbpasswd = "dbuser";
+	$database = "db_pj2";
 
 	$con = mysqli_connect($host,$dbname,$dbpasswd,$database);
 

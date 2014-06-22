@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<style type="text/css">
+<!DOCTYPE hml>
+<style tpye="text/css">
 	@import url("style.css");
 </style>
 <html>
@@ -7,7 +7,7 @@
 	<title>Database FP | Search</title>
 </head>
 <body>
-<h3>Household Registration System</br>Search Page</h3> 
+<h3>Household Registration System</br>Search Page</h3>
 <div id="mainform">
 <?php
 session_start();
@@ -24,8 +24,8 @@ else{
 	if( mysqli_connect_errno($con)){
     	echo "Fail to connect to Mysql<br/>".mysqli_connect_error()."<br/>";
 	}else{
-?>
-			<p><span style="font-size:25px;">Search by UID</span></br>                    
+	?>
+	<p><span style="font-size:25px;">Search by UID</span></br>                
       <form method="get" action="searchResult.php">                             
       Select UID:                                                               
       <select name=searchUid size=1>                                            
@@ -53,9 +53,9 @@ else{
       ?>                                                                        
       </select>                                                                 
       <input type="submit" value="Search"><br/>                                 
-      </form></p>                                                               
-                                                                                
-      <p><span style="font-size:25px;">Search by Sex</span></br>                
+      </form></p>
+
+			<p><span style="font-size:25px;">Search by Sex</span></br>                
       <form method="get" action="searchResult.php">                             
       Select Sex:                                                               
       <select name=searchSex size=1>                                            
@@ -63,9 +63,9 @@ else{
         <option value=F>Female</option>                                         
       </select>                                                                 
       <input type="submit" value="Search"><br/>                                 
-      </form></p>	
-
-			<p><span style="font-size:25px;">Search by Age</span></br>                
+      </form></p>                                                               
+                                                                                
+      <p><span style="font-size:25px;">Search by Age</span></br>                
       <form method="get" action="searchResult.php">                             
       Enter Age interval:                                                       
       <input type="text" name="startAge" size="3"> ~                            
@@ -92,10 +92,10 @@ else{
 }
 ?>
 </div>
-<div id=button>                                                                 
-<input type="button" value="Main" style="float:center;width:60px;               
- height:25px;font-size:15px;background-color:B3B3BC;border:1px #E0E0EB          
- double" onclick="self.location.href='main.php'"/>                              
+<div id=button>
+<input type="button" value="Main" style="float:center;width:60px;
+ height:25px;font-size:15px;background-color:B3B3BC;border:1px #E0E0EB
+ double" onclick="self.location.href='main.php'"/>
 </div>
 </body>
 </html>

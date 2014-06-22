@@ -43,11 +43,16 @@ else{
 	      echo "something ERROR!<br/>".mysqli_error();
 	} else{
 		echo "<h2>Update Sucessfully!</h2><br/>";
-		echo "<a href='main.php'>Main Page</a>";
+		//echo "<a href='main.php'>Main Page</a>";
 	}
 }
 }
 ?>
+</div>
+<div id=button>                                                                 
+<input type="button" value="Main" style="float:center;width:60px;               
+ height:25px;font-size:15px;background-color:B3B3BC;border:1px #E0E0EB          
+ double" onclick="self.location.href='main.php'"/>                              
 </div>
 </body>
 </html>

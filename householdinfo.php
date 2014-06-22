@@ -17,10 +17,7 @@ if(!isset($_SESSION['sus'])){
 	echo "<a href=index.php>Login Page</a>";
 }
 else{
-	$host = "localhost";
-	$dbname = "dbuser";
-	$dbpasswd = "dbuser";
-	$database = "db_pj2";
+	require 'PASS.php';
 
 	$con = mysqli_connect($host,$dbname,$dbpasswd,$database);
 
