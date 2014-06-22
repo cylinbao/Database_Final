@@ -119,7 +119,7 @@ else{
 			}
 ?>
 			<p><span style="font-size:25px;">Search by UID</span></br>
-			<form method="get" action="userinfo.php">
+			<form method="get" action="searchResult.php">
 			Select UID:
 			<select name=searchUid size=1>
 			<?php 
@@ -134,7 +134,7 @@ else{
 			</form></p>
 
 			<p><span style="font-size:25px;">Search by HID</span></br>
-			<form method="get" action="householdinfo.php">
+			<form method="get" action="searchResult.php">
 			Select HID:
 			<select name=searchHid size=1>
 			<?php                                                             
@@ -152,8 +152,8 @@ else{
 			<form method="get" action="searchResult.php">
 			Select Sex:
 			<select name=searchSex size=1>
-      	<option value=male>Male</option>    
-      	<option value=female>Female</option>    
+      	<option value=M>Male</option>    
+      	<option value=F>Female</option>    
 			</select>
 			<input type="submit" value="Search"><br/>
 			</form></p>
@@ -161,19 +161,20 @@ else{
 			<p><span style="font-size:25px;">Search by Age</span></br>
 			<form method="get" action="searchResult.php">
 			Enter Age interval:
-			<input type="text" name="startAge" size="3">~<input type="text" name="endAge" size="3">
+			<input type="text" name="startAge" size="3"> ~ 
+			<input type="text" name="endAge" size="3">
 			<input type="submit" value="Search"><br/>
 			</form></p>
 
 			<p><span style="font-size:25px;">Search by Living City</span></br>
 			<form method="get" action="searchResult.php">
 			Select City:
-			<select name=searchSex size=1>
+			<select name=searchCity size=1>
 			<?php                                                             
     		$sql = "SELECT * FROM household";                                       
     		$result = mysqli_query($con,$sql);                                      
     		while($row = mysqli_fetch_array($result)){                              
-      	echo "<option value=\"".$row['city']."\">".$row['city']."</option>";    
+      	echo "<option value=\"".$row['hid']."\">".$row['city']."</option>";    
     		}                                                                       
     	?>
 			</select>
